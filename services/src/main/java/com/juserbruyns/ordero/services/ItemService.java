@@ -16,12 +16,15 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public Item addItem(Item item){
+    public Item addItem(Item item) {
         return itemRepository.storeItem(item);
     }
 
-    public Item updateItem (String itemName, Item updatedItem){
-        return itemRepository.updateItem(itemName, updatedItem);
+    public Item updateItem(int id, Item updatedItem) {
+        if (itemRepository.getItems().containsKey(id)) {
+            itemRepository.updateItem(id, updatedItem);
+        } else{ throw new IllegalArgumentException("Item to Update not recognised");}
+        return updatedItem;
     }
 
 

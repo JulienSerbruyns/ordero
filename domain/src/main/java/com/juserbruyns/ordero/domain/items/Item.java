@@ -1,12 +1,21 @@
 package com.juserbruyns.ordero.domain.items;
 
 public class Item {
+    private Integer id;
     private String itemName;
     private String description;
     private Double price;
     private Integer amountOnStock;
 
     public Item() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getItemName() {
@@ -42,6 +51,7 @@ public class Item {
     }
 
     public static class ItemBuilder{
+        private Integer id;
         private String itemName;
         private String description;
         private Double price;
@@ -51,11 +61,17 @@ public class Item {
 
         public Item build(){
             Item item = new Item();
+            item.setId(id);
             item.setItemName(itemName);
             item.setDescription(description);
             item.setPrice(price);
             item.setAmountOnStock(amountOnStock);
             return item;
+        }
+
+        public ItemBuilder withId (Integer id){
+            this.id = id;
+            return this;
         }
 
         public ItemBuilder withItemName (String itemName){

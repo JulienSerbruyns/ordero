@@ -6,19 +6,25 @@ import java.util.Map;
 
 @Named
 public class ItemRepository {
-    private Map<String, Item> items;
+    private Map<Integer, Item> items;
+    private static int itemIndex = 0;
 
-    public ItemRepository(){
+    public ItemRepository() {
         this.items = new HashMap<>();
     }
 
-    public Item storeItem(Item item){
-        items.put(item.getItemName(),item);
+    public Item storeItem(Item item) {
+        item.setId(itemIndex++);
+        items.put(item.getId(), item);
         return item;
     }
 
-    public Item updateItem(String itemName, Item updatedItem){
-        items.put(itemName,updatedItem);
-        return updatedItem;
+    public Item updateItem(int itemId, Item updatedItem) {
+            items.put(itemId, updatedItem);
+            return updatedItem;
+    }
+
+    public Map<Integer, Item> getItems() {
+        return items;
     }
 }
