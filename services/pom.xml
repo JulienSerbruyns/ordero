@@ -11,5 +11,12 @@
 
     <artifactId>services</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.juserbruyns.ordero</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+    </dependencies>
+
 
 </project>
