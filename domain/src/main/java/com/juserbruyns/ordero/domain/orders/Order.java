@@ -1,6 +1,6 @@
 package com.juserbruyns.ordero.domain.orders;
 
-import com.juserbruyns.ordero.domain.ItemGroup;
+import com.juserbruyns.ordero.domain.items.ItemGroup;
 
 import java.util.List;
 
