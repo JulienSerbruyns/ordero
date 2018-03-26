@@ -19,10 +19,10 @@ public class ItemGroupRepository {
         return itemGroup;
     }
 
-    public ItemGroup updateItemGroup(int itemGroupId, ItemGroup updatedItemGroup) {
-        itemGroups.put(itemGroupId, updatedItemGroup);
-        return updatedItemGroup;
-    }
+//    public ItemGroup updateItemGroup(int itemGroupId, ItemGroup updatedItemGroup) {
+//        itemGroups.put(itemGroupId, updatedItemGroup);
+//        return updatedItemGroup;
+//    }
 
     public Map<Integer, ItemGroup> getItemGroups() {
         return itemGroups;

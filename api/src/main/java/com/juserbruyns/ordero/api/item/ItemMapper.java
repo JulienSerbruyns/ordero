@@ -15,7 +15,7 @@ public class ItemMapper {
                 .withAmountOnStock(item.getAmountOnStock());
     }
 
-    public Item todomain (ItemDto itemDto) {
+    public Item toDomain (ItemDto itemDto) {
         return Item.ItemBuilder.item()
                 .withItemName(itemDto.getItemName())
                 .withDescription(itemDto.getDescription())

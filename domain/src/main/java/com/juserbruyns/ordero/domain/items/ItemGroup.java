@@ -29,7 +29,7 @@ public class ItemGroup {
     }
 
     public void setTotalPriceOfItem(Double totalPriceOfItem) {
-        this.totalPriceOfItem = totalPriceOfItem;
+        this.totalPriceOfItem = item.getPrice()*amount;
     }
 
     public Item getItem() {
@@ -49,11 +49,21 @@ public class ItemGroup {
     }
 
     public LocalDate getShippingDate() {
-        return shippingDate;
+              return shippingDate;
     }
 
-    public void setShippingDate(LocalDate shippingDate) {
-        this.shippingDate = shippingDate;
+    public void setShippingDate() {
+        this.shippingDate = calculateShippingDate();
+    }
+
+    public LocalDate calculateShippingDate() {
+        LocalDate shipDate = LocalDate.of(2018,01,01);
+        if (item.getAmountOnStock() <= amount) {
+            shipDate = LocalDate.now().plusDays(1);
+        } else {
+            shipDate = LocalDate.now().plusWeeks(1);
+        }
+        return shipDate;
     }
 
     public static class ItemGroupBuilder {
@@ -76,7 +86,7 @@ public class ItemGroup {
             itemGroup.setItem(item);
             itemGroup.setAmount(amount);
             itemGroup.setTotalPriceOfItem(totalPriceOfItem);
-            itemGroup.setShippingDate(shippingDate);
+            itemGroup.setShippingDate();
             return itemGroup;
         }
 
