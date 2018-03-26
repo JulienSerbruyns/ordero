@@ -27,4 +27,8 @@ public class ItemRepository {
     public Map<Integer, Item> getItems() {
         return items;
     }
+
+    public Item getItem(int id){
+        return items.get(id);
+    }
 }

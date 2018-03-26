@@ -3,6 +3,7 @@ package com.juserbruyns.ordero.domain.items;
 import java.time.LocalDate;
 
 public class ItemGroup {
+    private int id;
     private Item item;
     private Integer amount;
     private Double totalPriceOfItem;
@@ -17,6 +18,12 @@ public class ItemGroup {
 
     }
 
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
     public Double getTotalPriceOfItem() {
         return totalPriceOfItem;
     }
@@ -50,6 +57,7 @@ public class ItemGroup {
     }
 
     public static class ItemGroupBuilder {
+        private int id;
         private Item item;
         private Integer amount;
         private Double totalPriceOfItem;
@@ -64,6 +72,7 @@ public class ItemGroup {
 
         public ItemGroup build() {
             ItemGroup itemGroup = new ItemGroup();
+            itemGroup.setId(id);
             itemGroup.setItem(item);
             itemGroup.setAmount(amount);
             itemGroup.setTotalPriceOfItem(totalPriceOfItem);
@@ -75,12 +84,26 @@ public class ItemGroup {
             return item;
         }
 
-        public Integer getAmount() {
-            return amount;
+        public ItemGroupBuilder withAmount(int amount) {
+            this.amount=amount;
+            return this;
         }
 
-        public LocalDate getShippingDate() {
-            return shippingDate;
+        public ItemGroupBuilder withShippingDate(LocalDate shippingDate) {
+            this.shippingDate=shippingDate;
+            return this;
         }
+
+        public ItemGroupBuilder withTotalPriceOfItem(Double totalPriceOfItem) {
+            this.totalPriceOfItem = totalPriceOfItem;
+            return this;
+        }
+
+        public ItemGroupBuilder withItem(Item item) {
+            this.item = item;
+            return this;
+        }
+
+
     }
 }

@@ -27,4 +27,8 @@ public class CustomerRepository {
     public List<Customer> getCustomers() {
         return Collections.unmodifiableList(new ArrayList<>(customers.values()));
     }
+
+    public Customer getCustomer(int id) {
+        return customers.get(id);
+    }
 }
