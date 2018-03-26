@@ -1,5 +1,6 @@
 package com.juserbruyns.ordero.services;
 
+import com.juserbruyns.ordero.domain.items.Item;
 import com.juserbruyns.ordero.domain.orders.Order;
 import com.juserbruyns.ordero.domain.orders.OrderRepository;
 
@@ -17,6 +18,10 @@ public class OrderService {
 
     public Order addOrder(Order order) {
         return orderRepository.storeOrder(order);
+    }
+
+    public Order addItemToOrder(int orderId, Item item, int amount){
+        return orderRepository.addItemToOrder(orderId,item,amount);
     }
 
 //    public Order updateOrder(int id, Order updatedOrder) {

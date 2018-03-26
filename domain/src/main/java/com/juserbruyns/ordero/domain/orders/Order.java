@@ -2,6 +2,7 @@ package com.juserbruyns.ordero.domain.orders;
 
 import com.juserbruyns.ordero.domain.items.ItemGroup;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Order {
@@ -21,7 +22,16 @@ public class Order {
     }
 
     public List<ItemGroup> getOrderedItems() {
-        return orderedItems;
+        return Collections.unmodifiableList(orderedItems);
+    }
+
+    public void setOrderedItems(List<ItemGroup> orderedItems) {
+        this.orderedItems = orderedItems;
+    }
+
+    public List<ItemGroup> addOrderedItems(ItemGroup itemGroup) {
+        orderedItems.add(itemGroup);
+        return this.orderedItems = orderedItems;
     }
 
     public double getTotalPrice() {
@@ -30,10 +40,6 @@ public class Order {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = orderedItems.stream().mapToDouble(itemGroup -> itemGroup.getTotalPriceOfItem()).sum();
-    }
-
-    public void setOrderedItems(List<ItemGroup> orderedItems) {
-        this.orderedItems = orderedItems;
     }
 
     public List<ItemGroup> getOrderedItemGroups() {
@@ -49,7 +55,7 @@ public class Order {
             return new OrderBuilder();
         }
 
-        public Order build(){
+        public Order build() {
             Order order = new Order();
             order.setId(id);
             order.setOrderedItems(orderedItems);
