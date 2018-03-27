@@ -16,7 +16,7 @@ public class ItemRepository {
     public Item storeItem(Item item) {
         item.setId(itemIndex++);
         items.put(item.getId(), item);
-        return item;
+        return items.get(item.getId());
     }
 
     public Item updateItem(int itemId, Item updatedItem) {

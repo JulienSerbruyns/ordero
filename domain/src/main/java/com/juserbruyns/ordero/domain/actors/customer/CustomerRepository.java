@@ -14,9 +14,9 @@ public class CustomerRepository {
     }
 
     public Customer storeCustomer(Customer customer) {
-        customer.setId(customerIndex++);
+        customer.setId(++customerIndex);
         customers.put(customer.getId(), customer);
-        return customer;
+        return customers.get(customerIndex);
     }
 
     public Customer updateCustomer(int customerId, Customer updatedCustomer) {
