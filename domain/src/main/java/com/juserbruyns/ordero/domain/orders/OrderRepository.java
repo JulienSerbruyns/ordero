@@ -21,7 +21,7 @@ public class OrderRepository {
     }
 
     public Order storeOrder(Order order) {
-        order.setId(orderIndex++);
+        order.setId(++orderIndex);
         orders.put(order.getId(), order);
         return order;
     }

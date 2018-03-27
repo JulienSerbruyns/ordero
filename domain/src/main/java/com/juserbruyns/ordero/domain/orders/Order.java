@@ -1,5 +1,6 @@
 package com.juserbruyns.ordero.domain.orders;
 
+import com.juserbruyns.ordero.domain.actors.customer.Customer;
 import com.juserbruyns.ordero.domain.items.ItemGroup;
 
 import java.util.Collections;
@@ -8,9 +9,18 @@ import java.util.List;
 public class Order {
     private int id;
     private List<ItemGroup> orderedItems;
+    private Customer customer;
     private double totalPrice;
 
     public Order() {
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public int getId() {
