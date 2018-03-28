@@ -5,6 +5,7 @@ import com.juserbruyns.ordero.domain.items.ItemRepository;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class ItemService {
@@ -27,5 +28,8 @@ public class ItemService {
         return updatedItem;
     }
 
+    public Item getItem(int id){
+        return itemRepository.getItem(id);
+    }
 
 }

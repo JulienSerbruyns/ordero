@@ -5,6 +5,7 @@ import com.juserbruyns.ordero.domain.actors.customer.CustomerRepository;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class CustomerService {
@@ -17,6 +18,14 @@ public class CustomerService {
 
     public Customer createCustomer(Customer customer) {
         return customerRepository.storeCustomer(customer);
+    }
+
+    public List<Customer> getCustomers(){
+        return customerRepository.getCustomers();
+    }
+
+    public Customer getCustomer(int id){
+        return customerRepository.getCustomer(id);
     }
 
 
